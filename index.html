@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fun with API</title>
+    <title>fun with api</title>
 </head>
 <body>
+    <h1 id="activity"></h1>
+    <h2 id="type"></h2>
+    <h3 id="price"></h3>
     
+    <p>visit to: <a href="">link</a></p>
+
+    <script>
+        function toDoList(){
+            fetch('http://www.boredapi.com/api/activity/')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("activity").innerText = data.activity
+            document.getElementById("type").innerText = data.type
+            document.getElementById("price").innerText = data.price
+        });
+        }
+        toDoList();
+        setInterval(() => {
+            toDoList()
+        }, 4000);
+    </script>
 </body>
 </html>
